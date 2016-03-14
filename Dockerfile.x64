@@ -1,0 +1,24 @@
+#
+# A minimal dnsmasq docker image based on alpine linux
+#
+# http://github.com/tenstartups/dnsmasq-docker
+#
+
+FROM tenstartups/alpine:latest
+
+MAINTAINER Marc Lennox <marc.lennox@gmail.com>
+
+# Install packages.
+RUN \
+  apk --update add dnsmasq && \
+  rm -rf /var/cache/apk/*
+
+# Add files to the container.
+COPY entrypoint.sh /docker-entrypoint
+
+# Set the entrypoint script.
+ENTRYPOINT ["/docker-entrypoint"]
+
+# Expose ports.
+EXPOSE 53/tcp
+EXPOSE 53/udp
