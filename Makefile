@@ -1,5 +1,5 @@
-ifeq ($(DOCKER_ARCH),arm)
-	DOCKER_IMAGE_NAME := tenstartups/dnsmasq:arm
+ifeq ($(DOCKER_ARCH),armhf)
+	DOCKER_IMAGE_NAME := tenstartups/dnsmasq:armhf
 else
 	DOCKER_IMAGE_NAME := tenstartups/dnsmasq:latest
 endif
